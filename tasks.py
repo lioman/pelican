@@ -86,7 +86,9 @@ def ruff(c, fix=False, diff=False):
 @task
 def lint(c, fix=False, diff=False):
     """Check code style via linting tools."""
+    check = not fix
     ruff(c, fix=fix, diff=diff)
+    black(c, check=check, diff=diff)
 
 
 @task
